@@ -28,7 +28,7 @@ previous day (Tuesdays).
 | [8](Assignment8)   | Scheduling simulator          |         |
 | [9](Assignment9)   | Membench, best-fit allocator  |         |
 | [10](Assignment10) | Free list allocator           |         |
-| [11](Assignment11) | Exam from previous year       |         |
+| [11](Exam)         | Exam from previous year       |         |
 
 ## General Information
 
