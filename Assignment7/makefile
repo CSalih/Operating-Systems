@@ -3,7 +3,6 @@ LD = gcc
 
 CFLAGS = -std=gnu11 -Wall -Werror
 LDFLAGS= -pthread
-CPPFLAGS= -COMPLILE_TASK3a
 
 .PHONY: all task1 task2 task3a task3b clean
 
@@ -17,6 +16,6 @@ task1: task1.c
 task2: task2.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
 task3a: task3.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)  -o $@ $<
+	$(CC) $(CFLAGS) -COMPLILE_TASK3a $(LDFLAGS)  -o $@ $<
 task3b: task3.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<

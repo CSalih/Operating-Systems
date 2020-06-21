@@ -1,6 +1,5 @@
 // This header file provides a basic queue implementation
 
-
 // ========== Forward Declarations ==========
 
 // create and empty-initialize the queue
@@ -23,47 +22,40 @@ void pop();
 
 // ========== Implementation Detail ==========
 
-#include <sys/queue.h> // provides the internal queue implementation
+#include <sys/queue.h>  // provides the internal queue implementation
 
 unsigned myQueueLength = 0;
 
 STAILQ_HEAD(stailhead, entry) head = STAILQ_HEAD_INITIALIZER(head);
 
-struct stailhead *headp;
+struct stailhead* headp;
 
 struct entry {
-	unsigned content;
-	STAILQ_ENTRY(entry) entries;
+    unsigned content;
+    STAILQ_ENTRY(entry) entries;
 };
 
-void create() {
-	STAILQ_INIT(&head);
-}
+void create() { STAILQ_INIT(&head); }
 
-int empty() {
-	return STAILQ_EMPTY(&head);
-}
+int empty() { return STAILQ_EMPTY(&head); }
 
-unsigned size() {
-	return myQueueLength;
-}
+unsigned size() { return myQueueLength; }
 
 void push(unsigned value) {
-	struct entry* myElement = malloc(sizeof(struct entry));
-	myElement->content = value;
-	STAILQ_INSERT_TAIL(&head, myElement, entries);
-	myQueueLength++;
+    struct entry* myElement = malloc(sizeof(struct entry));
+    myElement->content = value;
+    STAILQ_INSERT_TAIL(&head, myElement, entries);
+    myQueueLength++;
 }
 
 unsigned front() {
-	struct entry* myElement = STAILQ_FIRST(&head);
-	return myElement->content;
+    struct entry* myElement = STAILQ_FIRST(&head);
+    return myElement->content;
 }
 
 void pop() {
-	struct entry* myElement = STAILQ_FIRST(&head);
-	STAILQ_REMOVE_HEAD(&head, entries);
-	free(myElement);
-	myQueueLength--;
+    struct entry* myElement = STAILQ_FIRST(&head);
+    STAILQ_REMOVE_HEAD(&head, entries);
+    free(myElement);
+    myQueueLength--;
 }
-
